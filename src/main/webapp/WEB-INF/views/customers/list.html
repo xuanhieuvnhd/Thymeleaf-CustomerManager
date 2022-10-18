@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head"></head>
+<body>
+<div th:replace="/layout::header"></div>
+<p>
+    <a th:href="@{/customers/create}" >
+        <button class="btn btn-primary">Thêm khách hàng mới</button></a>
+</p>
+<h3>Danh sách khách hàng</h3>
+<br>
+<br>
+<table class="table table-striped">
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>ADDRESS</th>
+        <th>ACTION</th>
+    </tr>
+    <tr th:each="row,rowStatus : ${customers}">
+        <td th:text="${rowStatus.count}"></td>
+        <td th:text="${row.getId()}"></td>
+        <td><a th:href="@{/customers/view/{id}(id=${row.id})}" th:text="${row.getName()}"></a></td>
+        <td th:text="${row.getEmail()}"></td>
+        <td th:text="${row.getAddress()}"></td>
+        <td>
+            <a th:href="@{/customers/edit/{id}(id=${row.id})}">
+                <button class="btn btn-primary">Edit</button></a>
+            <a th:href="@{/customers/delete/{id}(id=${row.id})}">
+                <button class="btn btn-danger">Delete</button></a>
+        </td>
+    </tr>
+</table>
+<div th:replace="/layout::footer"></div>
+</body>
+</html>

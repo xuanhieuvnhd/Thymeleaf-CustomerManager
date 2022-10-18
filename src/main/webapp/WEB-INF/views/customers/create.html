@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head"></head>
+<body>
+<div th:replace="/layout::header"></div>
+<br>
+<br>
+<form method="post">
+    <fieldset >
+        <legend>CREAT NEW CUSTOMER</legend>
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">ID</label>
+            <input type="text" name="id" id="disabledTextInput" class="form-control" placeholder="ID">
+        </div>
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">NAME</label>
+            <input type="text" name="name"  class="form-control" placeholder="NAME">
+        </div>
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">EMAIL</label>
+            <input type="text" name="email"  class="form-control" placeholder="EMAIL">
+        </div>
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">ADDRESS</label>
+            <input type="text" name="address"  class="form-control" placeholder="ADDRESS">
+        </div>
+
+        <button type="submit" class="btn btn-primary">CREATE</button>
+    </fieldset>
+</form>
+<div th:replace="/layout::footer"></div>
+</body>
+</html>
